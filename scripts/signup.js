@@ -2,11 +2,16 @@ const senha = document.getElementById('password');
 const senhaConfirm = document.getElementById('passwordConfirm');
 const criarConta = document.getElementById('submit');
 
+const limparcamp = () => {
+    const small = document.querySelectorAll('.error');
+    small.forEach((a)=> {
+    a.classList.remove('error');
+})
+};
 
 
 criarConta.addEventListener('click', a => {
   
-
     if (senha.value !== senhaConfirm.value) {
         a.preventDefault();
         const small = document.createElement('small');
@@ -14,6 +19,10 @@ criarConta.addEventListener('click', a => {
         small.appendChild(message);
         small.classList.add('error')
         senha.after(small);
+        
     }
 });
 
+senha.addEventListener('keyup', () => {
+    limparcamp()
+})
