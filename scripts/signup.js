@@ -4,9 +4,7 @@ const criarConta = document.getElementById('submit');
 
 const limparcamp = () => {
     const small = document.querySelectorAll('.error');
-    small.forEach((a) => {
-        a.classList.remove('error');
-    })
+    small.forEach((a) => a.classList.remove('error'));
 };
 
 
