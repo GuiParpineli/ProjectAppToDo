@@ -26,23 +26,23 @@
 
       <label>
         Nome:
-        <input type="text" required>
+        <input id='nome' type="text" >
       </label>
       <label>
         Sobrenome:
-        <input type="text"required>
+        <input id='sobrenome' type="text" >
       </label>
       <label>
         Email:
-        <input type="email" required>
+        <input type="email" id='email' >
       </label>
       <label>
         Senha:
-        <input type="password" id='password'required>
+        <input type="password" id='password'>
       </label>
       <label>
         Repetir senha:
-        <input type="password" id='passwordConfirm'required>
+        <input type="password" id='passwordConfirm' >
       </label>
 
       <button type="submit" id="submit">Criar conta</button>
@@ -51,8 +51,16 @@
     <div class="ingressar">
       <a href="index.html">Já possui conta? Acesse aqui</a>
     </div>
+    <div class='errorlist' hidden>
+      <ul class="errorlist ul">
+        <li>teste</li>
+      </ul>
+    </div>
   </div>
-  
+
+
+
+
   <!-- ---------------------- lógica aplicada no registro -------------------- -->
   <script src="scripts/utils.js"></script>
   <script src="scripts/signup.js"></script>

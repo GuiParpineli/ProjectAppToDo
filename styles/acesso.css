@@ -1,6 +1,6 @@
 @import url('./common.css');
 
-body{
+body {
   display: flex;
 }
 
@@ -22,6 +22,7 @@ form {
   padding: 1em 2.5em;
   box-sizing: border-box;
 }
+
 
 form:after {
   position: absolute;
@@ -47,15 +48,15 @@ input:focus {
   border: 1px solid lightgrey;
 }
 
-.error-input{
+.error-input {
   border: 1px solid red;
 }
 
-small{
+small {
   display: none;
 }
 
-.error{
+.error {
   display: block;
   color: red
 }
@@ -81,24 +82,60 @@ button {
   color: grey;
   font-size: 2em;
 }
-.ingressar{
+
+.ingressar {
   text-align: center;
 }
-.left{
-  width: 50%;  
+
+.left {
+  width: 50%;
   background-color: white;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.left img{
-  width:60%;
+
+.left img {
+  width: 60%;
 }
-.right{
+
+.right {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.errorlist{
+  color: red;
+  font-size:0.8rem;
+  padding: 10px;
+}
+
+
+
+@media (max-width:720px) {
+  .left {
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left img {
+    width: 50%;
+  }
+
+  .right {
+    width: 100%;
+    margin-top: 50%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+  }
 }
