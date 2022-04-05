@@ -35,5 +35,3 @@ const cadastro = () => {
             console.log(err);
         });
 };
-
-
