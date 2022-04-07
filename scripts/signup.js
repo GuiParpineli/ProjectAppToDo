@@ -1,5 +1,5 @@
 const api = "https://ctd-todo-api.herokuapp.com/v1";
-
+var key = '';
 const route = {
     users: "/users",
     login: "/users/login",
@@ -30,8 +30,9 @@ const cadastro = () => {
             return response.json();
         })
         .then(function (usuario) {
-            console.log(usuario);
-        }).catch(function (err) {
-            console.log(err);
-        });
+            return key = usuario;
+        }).then(function (key) {
+            return localStorage.setItem('chave', key.jwt);
+        })
 };
+

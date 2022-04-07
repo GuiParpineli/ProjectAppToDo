@@ -58,7 +58,8 @@ criarConta.addEventListener('click', a => {
         errorMessage('Campo <b>Repetir senha</b> não preenchido');
         senhaConfirm.classList.add('error-input')
     }else{
-        cadastro()
+        cadastro();
+        window.location.href = 'tarefas.html'
     }
 
     window.scrollBy({top:200, behavior:'smooth'});
