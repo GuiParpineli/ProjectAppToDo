@@ -51,9 +51,7 @@ const login = () => {
         });
 };
 
-login();
-passwordLogin.addEventListener('keyup', a => login())
-emailLogin.addEventListener('keyup', a => login())
+
 
 let button = document.getElementById('btn-login');
 
@@ -61,22 +59,23 @@ button.onclick = a => {
     login();
     errorList.hidden = '';
     errorListUl.innerHTML = '';
+    a.preventDefault()
+    limparcamp() 
+    setTimeout(function () {
+        if (account.jwt != undefined) {
+            console.log(account)
+            window.location.href = 'tarefas.html'
+        }
+        else if (account == 'Contraseña incorrecta') {
+            a.preventDefault();
+            errorMessage('<b>Senha</b> incorreta')
+        } else if (account == 'El usuario no existe') {
+            a.preventDefault();
+            errorMessage('<b>Email</b> não cadastrado');
+        } else {
+            a.preventDefault();
+            errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
+        }
+    }, 500)
 
-    if (account.jwt != undefined) {
-        console.log(account)
-        window.location.href = 'tarefas.html'
-    }
-    else if (account == 'Contraseña incorrecta') {
-        a.preventDefault();
-        errorMessage('<b>Senha</b> incorreta')
-    }else if(account == 'El usuario no existe') {
-        a.preventDefault();
-        errorMessage('<b>Email</b> não cadastrado');
-    }else {
-        a.preventDefault();
-        errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
-    }
 };
-
-passwordLogin.addEventListener('keyup', a => login())
-emailLogin.addEventListener('keyup', a => login())
