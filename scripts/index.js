@@ -2,7 +2,27 @@ var usuario = '';
 var account = '';
 const emailLogin = document.getElementById('inputEmail');
 const passwordLogin = document.getElementById('inputPassword');
-console.log(account)
+const api = "https://ctd-todo-api.herokuapp.com/v1";
+const errorListUl = document.querySelector('.errorlist ul');
+const errorList = document.querySelector('.errorlist');
+
+//variavel para retirar os espacos brancos dos inputs
+const empty = a => a.value.trim() === '';
+//func para acrescentar uma msgem na ul com os erros
+var errorMessage = a => errorListUl.innerHTML += '<li>' + a + '</li>';
+//limpar os erros
+const limparcamp = () => {
+    const small = document.querySelectorAll('.error');
+    small.forEach(a => a.classList.remove('error'));
+    const inputError = document.querySelectorAll('.error-input');
+    inputError.forEach(a => a.classList.remove('error-input'));
+};
+
+const route = {
+    users: "/users",
+    login: "/users/login",
+    tasks: "/tasks"
+};
 const login = () => {
 
     const url = api + route.login;
@@ -32,25 +52,31 @@ const login = () => {
 };
 
 login();
+passwordLogin.addEventListener('keyup', a => login())
+emailLogin.addEventListener('keyup', a => login())
+
 let button = document.getElementById('btn-login');
 
 button.onclick = a => {
     login();
     errorList.hidden = '';
     errorListUl.innerHTML = '';
-   
+
     if (account.jwt != undefined) {
         console.log(account)
         window.location.href = 'tarefas.html'
     }
-    if (account == 'Contraseña incorrecta') {
+    else if (account == 'Contraseña incorrecta') {
         a.preventDefault();
         errorMessage('<b>Senha</b> incorreta')
-    } else {
+    }else if(account == 'El usuario no existe') {
         a.preventDefault();
-        errorMessage('<b>Usuario</b> ou <b>Senha</b> não Cadastrados');
+        errorMessage('<b>Email</b> não cadastrado');
+    }else {
+        a.preventDefault();
+        errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
     }
 };
 
 passwordLogin.addEventListener('keyup', a => login())
-emailLogin.keyup = a => login()
+emailLogin.addEventListener('keyup', a => login())

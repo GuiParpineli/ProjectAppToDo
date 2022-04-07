@@ -1,3 +1,4 @@
+//variaveis dos campos
 const senha = document.getElementById('password');
 const senhaConfirm = document.getElementById('passwordConfirm');
 const criarConta = document.getElementById('submit');
@@ -7,10 +8,11 @@ const email = document.getElementById('email');
 const errorListUl = document.querySelector('.errorlist ul');
 const errorList = document.querySelector('.errorlist');
 
+//variavel para retirar os espacos brancos dos inputs
 const empty = a => a.value.trim() === '';
-
+//func para acrescentar uma msgem na ul com os erros
 var errorMessage = a => errorListUl.innerHTML += '<li>' + a + '</li>';
-
+//limpar os erros
 const limparcamp = () => {
     const small = document.querySelectorAll('.error');
     small.forEach( a => a.classList.remove('error'));
@@ -18,7 +20,7 @@ const limparcamp = () => {
     inputError.forEach( a => a.classList.remove('error-input'));
 };
 
-
+//logica ao clicar no botao
 criarConta.addEventListener('click', a => {
     errorListUl.innerHTML = '';
     errorList.hidden = ''; 
@@ -66,12 +68,22 @@ criarConta.addEventListener('click', a => {
     
 });
 
-senha.addEventListener('keyup', () => limparcamp());
-nome.addEventListener('keyup', () => limparcamp());
-sobrenome.addEventListener('keyup', () => limparcamp());
-email.addEventListener('keyup', () => limparcamp());
-senha.addEventListener('keyup', () => limparcamp());
-senhaConfirm.addEventListener('keyup', () => limparcamp());
+//limpar erros no keyup
+const cleanKeyup = a => a.addEventListener('keyup', () => limparcamp());
+
+cleanKeyup(senha);
+cleanKeyup(nome);
+cleanKeyup(sobrenome);
+cleanKeyup(email);
+cleanKeyup(senha);
+cleanKeyup(senhaConfirm);
+
+// senha.addEventListener('keyup', () => limparcamp());
+// nome.addEventListener('keyup', () => limparcamp());
+// sobrenome.addEventListener('keyup', () => limparcamp());
+// email.addEventListener('keyup', () => limparcamp());
+// senha.addEventListener('keyup', () => limparcamp());
+// senhaConfirm.addEventListener('keyup', () => limparcamp());
 
 
 
