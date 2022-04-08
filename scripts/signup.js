@@ -76,7 +76,7 @@ criarConta.onclick = a => {
         small.classList.add('error')
         email.after(small);
     }
-    
+
     if (empty(nome)) {
         a.preventDefault();
         errorMessage('Campo <b>Nome</b> não preenchido');
@@ -102,23 +102,27 @@ criarConta.onclick = a => {
         errorMessage('Campo <b>Repetir senha</b> não preenchido');
         senhaConfirm.classList.add('error-input')
     }
-    else {
-        cadastro()
-        if (senha.value !== senhaConfirm.value) {
-            a.preventDefault();
-            const small = document.createElement('small');
-            const message = document.createTextNode('As senhas não são iguais!');
-            small.appendChild(message);
-            small.classList.add('error')
-            senha.after(small);
-        }
-        if(account.jwt != undefined){
-        window.location.href = 'tarefas.html'}
-        
-        if(account = 'El usuario ya se encuentra registrado'){
+    if (senha.value !== senhaConfirm.value) {
         a.preventDefault();
-        errorMessage('Usuario ja cadastrado');}
-        
+        const small = document.createElement('small');
+        const message = document.createTextNode('As senhas não são iguais!');
+        small.appendChild(message);
+        small.classList.add('error')
+        senha.after(small);
+    }
+    else {
+        cadastro();
+        a.preventDefault()
+        setTimeout(function () {
+            if (account === 'El usuario ya se encuentra registrado') {
+                a.preventDefault();
+                errorMessage('Usuario ja cadastrado');
+            }
+            if(account.jwt != undefined) {
+                window.location.href = 'tarefas.html'
+            }
+        }, 1000);
+
     }
     window.scrollBy({ top: 200, behavior: 'smooth' });
 
