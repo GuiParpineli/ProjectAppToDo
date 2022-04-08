@@ -23,6 +23,7 @@ const route = {
     login: "/users/login",
     tasks: "/tasks"
 };
+
 const login = () => {
 
     const url = api + route.login;
@@ -40,7 +41,6 @@ const login = () => {
         body: JSON.stringify(dataLogin)
     })
         .then(function (response) { return response.json() })
-        .then(function (user) { return usuario = user })
         .then(function (key) {
             localStorage.setItem('authorization', key.jwt)
             account = key;
@@ -51,8 +51,6 @@ const login = () => {
         });
 };
 
-
-
 let button = document.getElementById('btn-login');
 
 button.onclick = a => {
@@ -60,15 +58,15 @@ button.onclick = a => {
     errorList.hidden = '';
     errorListUl.innerHTML = '';
     a.preventDefault()
-    limparcamp() 
+    limparcamp()
     setTimeout(function () {
         if (account.jwt != undefined) {
-            console.log(account)
             window.location.href = 'tarefas.html'
         }
         else if (account == 'Contraseña incorrecta') {
             a.preventDefault();
             errorMessage('<b>Senha</b> incorreta')
+            
         } else if (account == 'El usuario no existe') {
             a.preventDefault();
             errorMessage('<b>Email</b> não cadastrado');
