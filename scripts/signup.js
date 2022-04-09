@@ -8,6 +8,7 @@ const sobrenome = document.getElementById('sobrenome');
 const email = document.getElementById('email');
 const errorListUl = document.querySelector('.errorlist ul');
 const errorList = document.querySelector('.errorlist');
+const erros = '';
 var account = '';
 
 //variavel para retirar os espacos brancos dos inputs
@@ -22,7 +23,6 @@ const limparcamp = () => {
     inputError.forEach(a => a.classList.remove('error-input'));
 };
 
-
 const route = {
     users: "/users",
     login: "/users/login",
@@ -35,29 +35,75 @@ const cadastro = () => {
 
     const url = api + route.users;
 
-    const data = {
-        firstName: valor(nome),
-        lastName: valor(sobrenome),
-        email: valor(email),
-        password: valor(password)
-    };
+    if (!email.value.includes('@')) {
 
-    fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-        .then(function (response) { return response.json() })
-        .then(function (key) {
-            localStorage.setItem('authorization', key.jwt)
-            account = key;
+        const small = document.createElement('small');
+        const message = document.createTextNode('Email precisa ter @!');
+        small.appendChild(message);
+        small.classList.add('error')
+        email.after(small);
+    }
+
+    if (empty(nome)) {
+
+        errorMessage('Campo <b>Nome</b> não preenchido');
+        nome.classList.add('error-input')
+    }
+    if (empty(sobrenome)) {
+
+        errorMessage('Campo <b>Sobrenome</b> não preenchido');
+        sobrenome.classList.add('error-input');
+    }
+    if (empty(email)) {
+
+        errorMessage('Campo <b>Email</b> não preenchido');
+        email.classList.add('error-input')
+    }
+    if (empty(senha)) {
+
+        errorMessage('Campo <b>Senha</b> não preenchido');
+        senha.classList.add('error-input')
+    }
+    if (empty(senhaConfirm)) {
+
+        errorMessage('Campo <b>Repetir senha</b> não preenchido');
+        senhaConfirm.classList.add('error-input')
+
+    }
+    else if (senha.value !== senhaConfirm.value) {
+
+        const small = document.createElement('small');
+        const message = document.createTextNode('As senhas não são iguais!');
+        small.appendChild(message);
+        small.classList.add('error')
+        senha.after(small);
+
+    }
+    else {
+        const data = {
+            firstName: valor(nome),
+            lastName: valor(sobrenome),
+            email: valor(email),
+            password: valor(password)
+        }
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
         })
-        .catch(function (error) {
-            localStorage.setItem('authorization', '');
-            account = '';
-        });
+            .then(function (response) { return response.json() })
+            .then(function (key) {
+                localStorage.setItem('authorization', key.jwt)
+                account = key;
+            })
+            .catch(function (error) {
+                localStorage.setItem('authorization', '');
+                account = '';
+            });
+    };
 };
 
 
@@ -67,63 +113,19 @@ criarConta.onclick = a => {
     errorList.hidden = '';
     a.preventDefault()
     limparcamp()
+    cadastro();
+    setTimeout(function () {
+    if (account === 'El usuario ya se encuentra registrado') {
+        a.preventDefault();
+        errorMessage('Usuario ja cadastrado');
+    }},1200);
+    setInterval(function () {
+        if (account.jwt != undefined) {
+            window.location.href = 'tarefas.html'
+        }
+    }, 1000);
 
-    if (!email.value.includes('@')) {
-        a.preventDefault();
-        const small = document.createElement('small');
-        const message = document.createTextNode('Email precisa ter @!');
-        small.appendChild(message);
-        small.classList.add('error')
-        email.after(small);
-    }
 
-    if (empty(nome)) {
-        a.preventDefault();
-        errorMessage('Campo <b>Nome</b> não preenchido');
-        nome.classList.add('error-input')
-    }
-    if (empty(sobrenome)) {
-        a.preventDefault();
-        errorMessage('Campo <b>Sobrenome</b> não preenchido');
-        sobrenome.classList.add('error-input');
-    }
-    if (empty(email)) {
-        a.preventDefault();
-        errorMessage('Campo <b>Email</b> não preenchido');
-        email.classList.add('error-input')
-    }
-    if (empty(senha)) {
-        a.preventDefault();
-        errorMessage('Campo <b>Senha</b> não preenchido');
-        senha.classList.add('error-input')
-    }
-    if (empty(senhaConfirm)) {
-        a.preventDefault();
-        errorMessage('Campo <b>Repetir senha</b> não preenchido');
-        senhaConfirm.classList.add('error-input')
-    }
-    if (senha.value !== senhaConfirm.value) {
-        a.preventDefault();
-        const small = document.createElement('small');
-        const message = document.createTextNode('As senhas não são iguais!');
-        small.appendChild(message);
-        small.classList.add('error')
-        senha.after(small);
-    }
-    else {
-        cadastro();
-        a.preventDefault()
-        setTimeout(function () {
-            if (account === 'El usuario ya se encuentra registrado') {
-                a.preventDefault();
-                errorMessage('Usuario ja cadastrado');
-            }
-            if(account.jwt != undefined) {
-                window.location.href = 'tarefas.html'
-            }
-        }, 1000);
-
-    }
     window.scrollBy({ top: 200, behavior: 'smooth' });
 
 };
