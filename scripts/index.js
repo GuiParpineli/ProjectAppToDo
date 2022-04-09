@@ -5,6 +5,28 @@ const passwordLogin = document.getElementById('inputPassword');
 const api = "https://ctd-todo-api.herokuapp.com/v1";
 const errorListUl = document.querySelector('.errorlist ul');
 const errorList = document.querySelector('.errorlist');
+const loadingDiv = document.querySelector('.loading');
+const loadingDiv2 = document.querySelector('.loading2');
+const loadingDiv3 = document.querySelector('.loading3');
+const loading = document.getElementById('loading-container');
+const button = document.getElementById('btn-login');
+
+var animation = () => {
+    loading.classList.add('loading-box')
+    loadingDiv.hidden = '';
+    loadingDiv2.hidden = '';
+    loadingDiv3.hidden = '';
+    button.classList.add('button-loading')
+}
+
+var cleanAnimation = () => {
+    loading.classList.remove('loading-box')
+    loadingDiv.hidden = 'hidden';
+    loadingDiv2.hidden = 'hidden';
+    loadingDiv3.hidden = 'hidden';
+    button.classList.remove('button-loading')
+}
+
 
 //variavel para retirar os espacos brancos dos inputs
 const empty = a => a.value.trim() === '';
@@ -25,9 +47,9 @@ const route = {
 };
 
 const login = () => {
-
+    animation();
     const url = api + route.login;
-
+    
     const dataLogin = {
         email: emailLogin.value,
         password: passwordLogin.value
@@ -51,7 +73,7 @@ const login = () => {
         });
 };
 
-let button = document.getElementById('btn-login');
+
 
 button.onclick = a => {
     login();
@@ -59,19 +81,23 @@ button.onclick = a => {
     errorListUl.innerHTML = '';
     a.preventDefault()
     limparcamp()
+    
     setTimeout(function () {
         if (account.jwt != undefined) {
             window.location.href = 'tarefas.html'
         }
         else if (account == 'Contraseña incorrecta') {
+            cleanAnimation();
             a.preventDefault();
             errorMessage('<b>Senha</b> incorreta')
             
         } else if (account == 'El usuario no existe') {
             a.preventDefault();
+            cleanAnimation();
             errorMessage('<b>Email</b> não cadastrado');
         } else {
             a.preventDefault();
+            cleanAnimation();
             errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
         }
     }, 500)

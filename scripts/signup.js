@@ -15,6 +15,23 @@ const loadingDiv3 = document.querySelector('.loading3');
 const loading = document.getElementById('loading-container');
 var account = '';
 
+var animation = () => {
+    loading.classList.add('loading-box')
+    loadingDiv.hidden = '';
+    loadingDiv2.hidden = '';
+    loadingDiv3.hidden = '';
+    criarConta.classList.add('button-loading')
+}
+
+var cleanAnimation = () => {
+    loading.classList.remove('loading-box')
+    loadingDiv.hidden = 'hidden';
+    loadingDiv2.hidden = 'hidden';
+    loadingDiv3.hidden = 'hidden';
+    criarConta.classList.remove('button-loading')
+}
+
+
 //variavel para retirar os espacos brancos dos inputs
 const empty = a => a.value.trim() === '';
 //func para acrescentar uma msgem na ul com os erros
@@ -84,11 +101,7 @@ const cadastro = () => {
 
     }
     else {
-        loading.classList.add('loading-box')
-        loadingDiv.hidden = '';
-        loadingDiv2.hidden = '';
-        loadingDiv3.hidden = '';
-        criarConta.classList.add('button-loading')
+        animation();
         const data = {
             firstName: valor(nome),
             lastName: valor(sobrenome),
@@ -126,11 +139,7 @@ criarConta.onclick = a => {
 
     setTimeout(function () {
         if (account === 'El usuario ya se encuentra registrado') {
-            loading.classList.remove('loading-box')
-            loadingDiv.hidden = 'hidden';
-            loadingDiv2.hidden = 'hidden';
-            loadingDiv3.hidden = 'hidden';
-            criarConta.classList.remove('button-loading')
+            cleanAnimation();
             a.preventDefault();
             errorMessage('Usuario ja cadastrado');
         }
