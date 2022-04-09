@@ -61,6 +61,72 @@ small {
   color: red
 }
 
+.loading {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: animation 3s;
+  animation: squareanimation 2s infinite;
+}
+
+.loading2 {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: animation 3s;
+  animation: squareanimation2 2s infinite;
+}
+.loading3 {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: animation 3s;
+  animation: squareanimation3 2s infinite;
+}
+
+@keyframes squareanimation {
+  0% {
+    left: 50%;
+    background-color: white;
+  }
+
+  100% {
+    left: 60%;
+    transform: scale(90%);
+    background-color: 7898ff;
+  }
+}
+
+@keyframes squareanimation2 {
+  0% {
+    left: 60%;
+    background-color: white;
+  }
+
+  100% {
+    left: 70%;
+    transform: scale(60%);
+    background-color: 7898ff;
+  }
+
+}
+@keyframes squareanimation3 {
+  0% {
+    left: 70%;
+    background-color: white;
+  }
+
+  100% {
+    left: 80%;
+    transform: scale(50%);
+    background-color: 7898ff;
+  }
+
+}
+
 label {
   width: 100%;
   font-weight: 300;
@@ -70,9 +136,27 @@ label {
 }
 
 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: .5em 3em;
   background-color: var(--primary);
   color: white;
+  margin-top: 2em;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.loading-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em 3em;
+}
+
+.button-loading {
+  background-color: var(--primary);
+  color: #7898ff;
   margin-top: 2em;
   font-weight: 400;
   font-size: 1em;
@@ -108,9 +192,9 @@ button {
   justify-content: center;
 }
 
-.errorlist{
+.errorlist {
   color: red;
-  font-size:0.8rem;
+  font-size: 0.8rem;
   padding: 10px;
 }
 

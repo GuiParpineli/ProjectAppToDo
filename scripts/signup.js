@@ -8,7 +8,11 @@ const sobrenome = document.getElementById('sobrenome');
 const email = document.getElementById('email');
 const errorListUl = document.querySelector('.errorlist ul');
 const errorList = document.querySelector('.errorlist');
-const erros = '';
+const loadingDiv = document.querySelector('.loading');
+const loadingDiv2 = document.querySelector('.loading2');
+const loadingDiv3 = document.querySelector('.loading3');
+
+const loading = document.getElementById('loading-container');
 var account = '';
 
 //variavel para retirar os espacos brancos dos inputs
@@ -80,6 +84,11 @@ const cadastro = () => {
 
     }
     else {
+    loading.classList.add('loading-box')
+    loadingDiv.hidden = '';
+    loadingDiv2.hidden = '';
+    loadingDiv3.hidden = '';
+    criarConta.classList.add('button-loading')   
         const data = {
             firstName: valor(nome),
             lastName: valor(sobrenome),
@@ -114,8 +123,14 @@ criarConta.onclick = a => {
     a.preventDefault()
     limparcamp()
     cadastro();
+     
     setTimeout(function () {
     if (account === 'El usuario ya se encuentra registrado') {
+        loading.classList.remove('loading-box')
+        loadingDiv.hidden = true;
+        loadingDiv2.hidden = true;
+        loadingDiv3.hidden = true;
+        criarConta.classList.remove('button-loading')  
         a.preventDefault();
         errorMessage('Usuario ja cadastrado');
     }},1200);
