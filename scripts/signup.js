@@ -39,15 +39,6 @@ const cadastro = () => {
 
     const url = api + route.users;
 
-    if (!email.value.includes('@')) {
-
-        const small = document.createElement('small');
-        const message = document.createTextNode('Email precisa ter @!');
-        small.appendChild(message);
-        small.classList.add('error')
-        email.after(small);
-    }
-
     if (empty(nome)) {
 
         errorMessage('Campo <b>Nome</b> não preenchido');
@@ -68,7 +59,16 @@ const cadastro = () => {
         errorMessage('Campo <b>Senha</b> não preenchido');
         senha.classList.add('error-input')
     }
-    if (empty(senhaConfirm)) {
+
+    else if (!email.value.includes('@')) {
+
+        const small = document.createElement('small');
+        const message = document.createTextNode('Email precisa ter @!');
+        small.appendChild(message);
+        small.classList.add('error')
+        email.after(small);
+    }
+    else if (empty(senhaConfirm)) {
 
         errorMessage('Campo <b>Repetir senha</b> não preenchido');
         senhaConfirm.classList.add('error-input')
@@ -84,11 +84,11 @@ const cadastro = () => {
 
     }
     else {
-    loading.classList.add('loading-box')
-    loadingDiv.hidden = '';
-    loadingDiv2.hidden = '';
-    loadingDiv3.hidden = '';
-    criarConta.classList.add('button-loading')   
+        loading.classList.add('loading-box')
+        loadingDiv.hidden = '';
+        loadingDiv2.hidden = '';
+        loadingDiv3.hidden = '';
+        criarConta.classList.add('button-loading')
         const data = {
             firstName: valor(nome),
             lastName: valor(sobrenome),
@@ -123,22 +123,23 @@ criarConta.onclick = a => {
     a.preventDefault()
     limparcamp()
     cadastro();
-     
+
     setTimeout(function () {
-    if (account === 'El usuario ya se encuentra registrado') {
-        loading.classList.remove('loading-box')
-        loadingDiv.hidden = true;
-        loadingDiv2.hidden = true;
-        loadingDiv3.hidden = true;
-        criarConta.classList.remove('button-loading')  
-        a.preventDefault();
-        errorMessage('Usuario ja cadastrado');
-    }},1200);
+        if (account === 'El usuario ya se encuentra registrado') {
+            loading.classList.remove('loading-box')
+            loadingDiv.hidden = 'hidden';
+            loadingDiv2.hidden = 'hidden';
+            loadingDiv3.hidden = 'hidden';
+            criarConta.classList.remove('button-loading')
+            a.preventDefault();
+            errorMessage('Usuario ja cadastrado');
+        }
+    }, 1200);
     setInterval(function () {
         if (account.jwt != undefined) {
             window.location.href = 'tarefas.html'
         }
-    }, 1000);
+    }, 1200);
 
 
     window.scrollBy({ top: 200, behavior: 'smooth' });

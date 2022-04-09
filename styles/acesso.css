@@ -62,26 +62,27 @@ small {
 }
 
 .loading {
-  position: relative;
-  width: 15px;
-  height: 15px;
+
+  position: absolute;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   transition: animation 3s;
   animation: squareanimation 2s infinite;
 }
 
 .loading2 {
-  position: relative;
-  width: 15px;
-  height: 15px;
+  position: absolute;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   transition: animation 3s;
   animation: squareanimation2 2s infinite;
 }
 .loading3 {
-  position: relative;
-  width: 15px;
-  height: 15px;
+  position: absolute;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   transition: animation 3s;
   animation: squareanimation3 2s infinite;
@@ -89,12 +90,12 @@ small {
 
 @keyframes squareanimation {
   0% {
-    left: 50%;
+    left: 38%;
     background-color: white;
   }
 
   100% {
-    left: 60%;
+    left: 48%;
     transform: scale(90%);
     background-color: 7898ff;
   }
@@ -102,12 +103,12 @@ small {
 
 @keyframes squareanimation2 {
   0% {
-    left: 60%;
+    left: 48%;
     background-color: white;
   }
 
   100% {
-    left: 70%;
+    left: 60%;
     transform: scale(60%);
     background-color: 7898ff;
   }
@@ -115,12 +116,12 @@ small {
 }
 @keyframes squareanimation3 {
   0% {
-    left: 70%;
+    left: 60%;
     background-color: white;
   }
 
   100% {
-    left: 80%;
+    left: 70%;
     transform: scale(50%);
     background-color: 7898ff;
   }
@@ -148,18 +149,18 @@ button {
 }
 
 .loading-box{
+  font-size: 0rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .5em 3em;
 }
 
 .button-loading {
-  background-color: var(--primary);
-  color: #7898ff;
-  margin-top: 2em;
-  font-weight: 400;
+
+  color:  var(--primary);
+  text-align: center;
   font-size: 1em;
+
 }
 
 .form-header {
