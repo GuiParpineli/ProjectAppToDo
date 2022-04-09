@@ -138,8 +138,8 @@ criarConta.onclick = a => {
     cadastro();
 
     setTimeout(function () {
+        cleanAnimation();
         if (account === 'El usuario ya se encuentra registrado') {
-            cleanAnimation();
             a.preventDefault();
             errorMessage('Usuario ja cadastrado');
         }

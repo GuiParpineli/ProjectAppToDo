@@ -64,8 +64,8 @@ small {
 .loading {
 
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   transition: animation 3s;
   animation: squareanimation 2s infinite;
@@ -73,16 +73,16 @@ small {
 
 .loading2 {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   transition: animation 3s;
   animation: squareanimation2 2s infinite;
 }
 .loading3 {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   transition: animation 3s;
   animation: squareanimation3 2s infinite;
@@ -108,7 +108,7 @@ small {
   }
 
   100% {
-    left: 60%;
+    left: 58%;
     transform: scale(60%);
     background-color: 7898ff;
   }
@@ -116,12 +116,12 @@ small {
 }
 @keyframes squareanimation3 {
   0% {
-    left: 60%;
+    left: 58%;
     background-color: white;
   }
 
   100% {
-    left: 70%;
+    left: 68%;
     transform: scale(50%);
     background-color: 7898ff;
   }
