@@ -126,6 +126,7 @@ const cadastro = () => {
 criarConta.onclick = a => {
     errorListUl.innerHTML = '';
     errorList.hidden = '';
+    account = '';
     a.preventDefault()
     limparcamp()
     cadastro();
