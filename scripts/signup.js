@@ -16,12 +16,22 @@ var animation = () => {
     loading.classList.add('loading-box')
     loadingDiv.hidden = '';
     criarConta.classList.add('button-loading')
+    email.setAttribute('disabled', true);
+    nome.setAttribute('disabled', true);
+    sobrenome.setAttribute('disabled', true);
+    senhaConfirm.setAttribute('disabled', true);
+    senha.setAttribute('disabled', true);
 }
 
 var cleanAnimation = () => {
     loading.classList.remove('loading-box')
     loadingDiv.hidden = 'hidden';
     criarConta.classList.remove('button-loading')
+    email.removeAttribute('disabled');
+    nome.removeAttribute('disabled');
+    sobrenome.removeAttribute('disabled');
+    senhaConfirm.removeAttribute('disabled');
+    senha.removeAttribute('disabled');
 }
 
 

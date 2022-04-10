@@ -6,8 +6,6 @@ const api = "https://ctd-todo-api.herokuapp.com/v1";
 const errorListUl = document.querySelector('.errorlist ul');
 const errorList = document.querySelector('.errorlist');
 const loadingDiv = document.querySelector('.loading');
-const loadingDiv2 = document.querySelector('.loading2');
-const loadingDiv3 = document.querySelector('.loading3');
 const loading = document.getElementById('loading-container');
 const button = document.getElementById('btn-login');
 
@@ -15,12 +13,16 @@ var animation = () => {
     loading.classList.add('loading-box')
     loadingDiv.hidden = '';
     button.classList.add('button-loading')
+    emailLogin.setAttribute('disabled', true);
+    passwordLogin.setAttribute('disabled', true);
 }
 
 var cleanAnimation = () => {
     loading.classList.remove('loading-box')
     loadingDiv.hidden = 'hidden';
     button.classList.remove('button-loading')
+    emailLogin.removeAttribute('disabled');
+    passwordLogin.removeAttribute('disabled');
 }
 
 
@@ -97,6 +99,6 @@ button.onclick = a => {
             cleanAnimation();
             errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
         }
-    }, 1000)
+    }, 2000)
 
 };

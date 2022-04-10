@@ -63,7 +63,7 @@ small {
 
 .loading {
   right: 50%;
-  transform: translate(-50,-50);
+  transform: translate(-50, -50);
   position: absolute;
   width: 10px;
   height: 10px;
@@ -83,10 +83,12 @@ small {
     border-top: white 4px solid;
     transform: rotate(60deg);
   }
+
   50% {
     border-top: white 4px solid;
     transform: rotate(120deg);
   }
+
   75% {
     border-top: white 4px solid;
     transform: rotate(180deg);
