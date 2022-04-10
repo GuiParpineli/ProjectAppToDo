@@ -14,18 +14,15 @@ const button = document.getElementById('btn-login');
 var animation = () => {
     loading.classList.add('loading-box')
     loadingDiv.hidden = '';
-    loadingDiv2.hidden = '';
-    loadingDiv3.hidden = '';
     button.classList.add('button-loading')
 }
 
 var cleanAnimation = () => {
     loading.classList.remove('loading-box')
     loadingDiv.hidden = 'hidden';
-    loadingDiv2.hidden = 'hidden';
-    loadingDiv3.hidden = 'hidden';
     button.classList.remove('button-loading')
 }
+
 
 
 //variavel para retirar os espacos brancos dos inputs
@@ -100,6 +97,6 @@ button.onclick = a => {
             cleanAnimation();
             errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
         }
-    }, 500)
+    }, 1000)
 
 };

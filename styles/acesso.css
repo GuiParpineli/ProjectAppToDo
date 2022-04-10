@@ -62,68 +62,40 @@ small {
 }
 
 .loading {
-
+  right: 50%;
+  transform: translate(-50,-50);
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
+  border: #7898ff 4px solid;
   border-radius: 50%;
-  transition: animation 3s;
-  animation: squareanimation 2s infinite;
+  transition: all .5s;
+  animation: loading 0.5s infinite;
 }
 
-.loading2 {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  transition: animation 3s;
-  animation: squareanimation2 2s infinite;
-}
-.loading3 {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  transition: animation 3s;
-  animation: squareanimation3 2s infinite;
-}
-
-@keyframes squareanimation {
+@keyframes loading {
   0% {
-    left: 38%;
-    background-color: white;
+    border-top: white 4px solid;
+    transform: rotate(30deg);
+  }
+
+  25% {
+    border-top: white 4px solid;
+    transform: rotate(60deg);
+  }
+  50% {
+    border-top: white 4px solid;
+    transform: rotate(120deg);
+  }
+  75% {
+    border-top: white 4px solid;
+    transform: rotate(180deg);
   }
 
   100% {
-    left: 48%;
-    transform: scale(90%);
-    background-color: 7898ff;
-  }
-}
+    border-top: white 4px solid;
+    transform: rotate(360deg);
 
-@keyframes squareanimation2 {
-  0% {
-    left: 48%;
-    background-color: white;
-  }
-
-  100% {
-    left: 58%;
-    transform: scale(60%);
-    background-color: 7898ff;
-  }
-
-}
-@keyframes squareanimation3 {
-  0% {
-    left: 58%;
-    background-color: white;
-  }
-
-  100% {
-    left: 68%;
-    transform: scale(50%);
-    background-color: 7898ff;
   }
 
 }
@@ -148,7 +120,7 @@ button {
   font-size: 1em;
 }
 
-.loading-box{
+.loading-box {
   font-size: 0rem;
   display: flex;
   align-items: center;
@@ -156,8 +128,7 @@ button {
 }
 
 .button-loading {
-
-  color:  var(--primary);
+  color: #7898ff;
   text-align: center;
   font-size: 1em;
 

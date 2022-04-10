@@ -9,25 +9,18 @@ const email = document.getElementById('email');
 const errorListUl = document.querySelector('.errorlist ul');
 const errorList = document.querySelector('.errorlist');
 const loadingDiv = document.querySelector('.loading');
-const loadingDiv2 = document.querySelector('.loading2');
-const loadingDiv3 = document.querySelector('.loading3');
-
 const loading = document.getElementById('loading-container');
 var account = '';
 
 var animation = () => {
     loading.classList.add('loading-box')
     loadingDiv.hidden = '';
-    loadingDiv2.hidden = '';
-    loadingDiv3.hidden = '';
     criarConta.classList.add('button-loading')
 }
 
 var cleanAnimation = () => {
     loading.classList.remove('loading-box')
     loadingDiv.hidden = 'hidden';
-    loadingDiv2.hidden = 'hidden';
-    loadingDiv3.hidden = 'hidden';
     criarConta.classList.remove('button-loading')
 }
 
@@ -143,12 +136,12 @@ criarConta.onclick = a => {
             a.preventDefault();
             errorMessage('Usuario ja cadastrado');
         }
-    }, 1200);
-    setInterval(function () {
+    }, 2000);
+    setTimeout(function () {
         if (account.jwt != undefined) {
             window.location.href = 'tarefas.html'
         }
-    }, 1200);
+    }, 2000);
 
 
     window.scrollBy({ top: 200, behavior: 'smooth' });
