@@ -121,11 +121,11 @@ const cadastro = () => {
         })
             .then(function (response) { return response.json() })
             .then(function (key) {
-                localStorage.setItem('authorization', key.jwt)
+                localStorage.setItem('jwt', key.jwt)
                 account = key;
             })
             .catch(function (error) {
-                localStorage.setItem('authorization', '');
+                localStorage.setItem('jwt', '');
                 account = '';
             });
     };

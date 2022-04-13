@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do App</title>
-    <script src="scripts/index.js" defer></script>
-    
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <script src="scripts/index.js" defer type="module"></script>
+
   <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
   <link rel="stylesheet" href="styles/acesso.css">
 
@@ -28,17 +28,18 @@
 
       <label>
         Email:
-        <input id="inputEmail" type="text" required> 
+        <input id="inputEmail" type="text" required>
       </label>
       <label>
         Senha:
-        <input id="inputPassword" type="password" required> 
+        <input id="inputPassword" type="password" required>
       </label>
 
-      <button type="submit" id="btn-login"> 
+      <button type="submit" id="btn-login">
         <div id="loading-container">
-        <div class="loading" hidden></div>
-      </div>Acessar</button>
+          <div class="loading" hidden></div>
+        </div>Acessar
+      </button>
 
     </form>
     <div class="ingressar">
@@ -46,12 +47,12 @@
     </div>
     <div class='errorlist' hidden>
       <ul class="errorlist ul">
-        
-      </ul>
-  </div>
- <!-- ---------------------- lógica aplicada no login ----------------------- -->
 
- 
+      </ul>
+    </div>
+    <!-- ---------------------- lógica aplicada no login ----------------------- -->
+
+
 </body>
 
 </html>

@@ -76,20 +76,11 @@ small {
 @keyframes loading {
   0% {
     border-top: white 4px solid;
-    transform: rotate(30deg);
+    transform: rotate(45deg);
   }
 
-  25% {
-    border-top: white 4px solid;
-    transform: rotate(60deg);
-  }
 
   50% {
-    border-top: white 4px solid;
-    transform: rotate(120deg);
-  }
-
-  75% {
     border-top: white 4px solid;
     transform: rotate(180deg);
   }
