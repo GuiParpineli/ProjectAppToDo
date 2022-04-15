@@ -111,6 +111,9 @@ a {
   color: grey;
 }
 
+.task-id{
+  display: none;
+}
 /* Lista de tarefas ----------------------------------------------------------- */
 
 .tarefas-pendentes {
@@ -182,6 +185,7 @@ a {
   font-size: .9em;
   color: rgb(134, 134, 134);
 }
+
 
 /* Tarefas terminadas ----------------------------------------------------------- */
 
