@@ -142,6 +142,7 @@ const makeTasks = (jwt) => {
         .then(a => {
             naoTerminadas(a)
         })
+    inpuTask.value = '';
 }
 
 /* const delTask = (jwt) => {
@@ -192,9 +193,10 @@ const completeTask = jwt => {
 }
 
 window.addEventListener("click", function (event) {
-    target = event.target;
-    idElement = target.id
-    console.log(idElement)
+    if (event.target.className === 'not-done') {
+        target = event.target;
+        idElement = target.id
+    }
     classElement = event.target.className;
     completeTask(localStorage.getItem('jwt'));
 });
