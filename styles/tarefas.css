@@ -241,9 +241,6 @@ a {
   box-shadow: 2px 2px 5px lightgrey;
 }
 
-background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png');
-background-position: center;
-background-size: contain;
 
 .tarefa .nome {
   color: rgb(95, 95, 95);
