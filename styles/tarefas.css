@@ -326,20 +326,24 @@ a {
 }
 
 @media (max-width: 720px) {
-  header {
 
+  header {
+    display: flex;
+    justify-content: space-between;
     box-shadow: 0px 3px 5px lightgrey;
-    padding: 0 1.5em;
+    padding: 0 1em;
 
   }
 
   .nova-tarefa {
-    align-items: center;
-    justify-content: center;
+    
     background-color: white;
     margin-left: 50%;
     transform: translate(-50%);
     border-radius: 10px;
+    width: calc(100vw - 3em);
+    padding: 1em;
+    box-sizing: content-box;
     z-index: 20;
   }
 
@@ -353,38 +357,23 @@ a {
     padding: 5px 10px;
     text-align: center;
   }
-
-  .user-info {
-    display: flex;
-    padding-left: 15px;
-
-  }
-
+ 
   .tarefas-pendentes {
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-  }
-
-  .tarefas-pendentes .descricao {
-
-    margin-right: 5%;
-    border-radius: 1em;
-    font-size: .9rem;
-
   }
 
   .tarefa {
     display: flex;
     align-items: center;
-    margin-bottom: 1.em;
+    margin-bottom: 1.5em;
   }
 
   .titulo-terminadas {
     position: relative;
-    width: 20em;
+    width: calc(100vw - 3em);
     text-align: center;
     padding: .5em 1em;
     background-color: white;
@@ -397,22 +386,16 @@ a {
     transform: translate(-50%);
     z-index: 20;
   }
-
+  
   .tarefas-terminadas {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    width: 80vw;
   }
-
-  .tarefas-terminadas .descricao {
-    width: 15em;
-    margin-right: 5%;
-    border-radius: 1em;
-    font-size: .9rem;
-
-  }
-
+  
+  
   .tarefa .not-done {
     background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png');
     background-position: center;
@@ -423,5 +406,6 @@ a {
     background-image: url('https://cdn-icons-png.flaticon.com/512/6861/6861362.png');
     background-position: center;
     background-size: contain;
+
   }
 }
