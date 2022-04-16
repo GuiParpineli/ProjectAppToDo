@@ -148,6 +148,9 @@ a {
   height: 1.5em;
   width: 1.5em;
   background-color: white;
+  background-image:  url('https://cdn-icons-png.flaticon.com/512/327/327698.png');
+  background-position: center;
+  background-size: contain;
   box-shadow: 2px 2px 5px lightgrey;
   border: 2px solid var(--secondary);
   z-index: 2;
@@ -159,6 +162,9 @@ a {
   height: 1.5em;
   width: 1.5em;
   background-color: white;
+  background-image:  url('https://cdn-icons-png.flaticon.com/512/3096/3096687.png');
+  background-position: center;
+  background-size: contain;
   box-shadow: 2px 2px 5px lightgrey;
   border: 2px solid var(--secondary);
   z-index: 2;
@@ -166,11 +172,17 @@ a {
 }
 
 .tarefa .not-done:hover {
-  background-color: var(--secondary);
+  background-image:  url('https://cdn-icons-png.flaticon.com/512/190/190411.png');
+  background-position: center;
+  background-size: contain;
+  transform: scale(1.3);
 }
 
 .tarefa .delTask:hover {
-  background-color: red;
+  background-image:  url('https://cdn-icons-png.flaticon.com/512/6861/6861362.png');
+  background-position: center;
+  background-size: contain;
+  transform: scale(1.3);
 }
 
 .tarefa:first-child .not-done::before {
