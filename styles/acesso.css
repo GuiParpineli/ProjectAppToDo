@@ -21,6 +21,7 @@ form {
   box-shadow: 0 5px 5px lightgrey;
   padding: 1em 2.5em;
   box-sizing: border-box;
+  border-radius: 0.5em;
 }
 
 
@@ -28,6 +29,7 @@ form:after {
   position: absolute;
   content: '';
   width: .7em;
+  
   height: 100%;
   top: 0;
   left: 0;
