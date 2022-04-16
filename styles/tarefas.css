@@ -300,7 +300,7 @@ background-size: contain;
   text-decoration: line-through;
 }
 
-/* 
+
 #skeleton .descricao {
   background-color: rgb(189, 189, 189);
 }
@@ -316,7 +316,7 @@ background-size: contain;
 
 #skeleton {
   animation: trasparencia 1s infinite;
-} */
+}
 
 @keyframes trasparencia {
   0% {

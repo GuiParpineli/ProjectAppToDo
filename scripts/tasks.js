@@ -4,6 +4,7 @@ if ((localStorage.getItem('jwt') === null) || (localStorage.getItem('jwt') === '
 };
 
 const logout = document.getElementById('closeApp');
+const tasks = document.querySelector('.tasks');
 
 logout.onclick = () => {
     localStorage.removeItem('jwt');
@@ -67,12 +68,12 @@ const terminadas = a => {
 }
 const naoTerminadas = a => {
 
-    const skeleton = document.getElementById('skeleton')
+  
     const tarefa = document.createElement('li');
     const notDone = document.createElement('div');
     const descricao = document.createElement('div');
     const del = document.createElement('div');
-    
+
     const p = document.createElement('p');
     const p2 = document.createElement('p');
     const data = new Date(a.createdAt)
@@ -81,10 +82,10 @@ const naoTerminadas = a => {
     const pDescription = document.createTextNode(a.description);
     const pTime = document.createTextNode(data.toLocaleDateString('pt-BR'));
 
-    
+
 
     p.appendChild(pDescription);
-    
+
     p2.appendChild(pTime);
     descricao.appendChild(p);
     descricao.appendChild(p2);
@@ -101,8 +102,7 @@ const naoTerminadas = a => {
     tarefa.classList.add("tarefa");
     notDone.setAttribute('id', a.id)
     del.setAttribute('id', a.id)
-
-    skeleton.prepend(tarefa);
+    tasks.prepend(tarefa);
 }
 
 const obterTasks = (jwt) => {
@@ -219,7 +219,6 @@ const delTask = (jwt) => {
 }
 
 
-
 const submit = document.getElementById('btn-send');
 
 submit.onclick = a => {
@@ -231,6 +230,11 @@ submit.onclick = a => {
 window.onload = () => {
     obterUsuario(localStorage.getItem('jwt'))
     obterTasks(localStorage.getItem('jwt'))
+    setTimeout(function(a)  {
+    tasks.hidden = '';
+    const skeleton = document.getElementById('skeleton')
+    skeleton.hidden = 'hidden'
+    },1500)
 };
 
 
