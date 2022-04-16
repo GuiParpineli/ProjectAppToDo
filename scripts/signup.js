@@ -20,7 +20,8 @@ var animation = () => {
     nome.setAttribute('disabled', true);
     sobrenome.setAttribute('disabled', true);
     senhaConfirm.setAttribute('disabled', true);
-    senha.setAttribute('disabled', true);
+    senha.setAttribute('disabled', true)
+    criarConta.setAttribute('disabled', true);
 }
 
 var cleanAnimation = () => {
@@ -32,6 +33,7 @@ var cleanAnimation = () => {
     sobrenome.removeAttribute('disabled');
     senhaConfirm.removeAttribute('disabled');
     senha.removeAttribute('disabled');
+    criarConta.removeAttribute('disabled');
 }
 
 
@@ -111,7 +113,7 @@ const cadastro = () => {
             email: valor(email),
             password: valor(password)
         }
-
+        
         fetch(url, {
             method: "POST",
             headers: {
@@ -147,8 +149,7 @@ criarConta.onclick = a => {
             a.preventDefault();
             errorMessage('Usuario ja cadastrado');
         }
-    }, 2000);
-    setTimeout(function () {
+
         if (account.jwt != undefined) {
             window.location.href = 'tarefas.html'
         }

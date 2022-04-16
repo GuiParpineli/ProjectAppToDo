@@ -111,9 +111,21 @@ a {
   color: grey;
 }
 
-.task-id{
+.delTask{
+  width: 2em;
+  height: 2em;
+  background-color: var(--app-grey);
+  margin-right: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  color: grey;
+}
+
+.task-id {
   display: none;
 }
+
 /* Lista de tarefas ----------------------------------------------------------- */
 
 .tarefas-pendentes {
@@ -140,9 +152,22 @@ a {
   z-index: 2;
   transition: background-color 200ms linear;
 }
+.tarefa .delTask {
+  position: relative;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: white;
+  box-shadow: 2px 2px 5px lightgrey;
+  border: 2px solid var(--secondary);
+  z-index: 2;
+  transition: background-color 200ms linear;
+}
 
 .tarefa .not-done:hover {
   background-color: var(--secondary);
+}
+.tarefa .delTask:hover {
+  background-color: red;
 }
 
 .tarefa:first-child .not-done::before {
@@ -155,8 +180,28 @@ a {
   width: 2px;
   background-color: var(--secondary);
 }
+.tarefa:first-child .delTask::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: calc(.75em - 1px);
+  display: block;
+  height: 3em;
+  width: 2px;
+  background-color: var(--secondary);
+}
 
 .tarefa:not(:last-child) .not-done::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: calc(.75em - 1px);
+  display: block;
+  height: 4.5em;
+  width: 2px;
+  background-color: var(--secondary);
+}
+.tarefa:not(:last-child) .delTask::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -229,6 +274,7 @@ a {
   color: grey;
   text-decoration: line-through;
 }
+
 /* 
 #skeleton .descricao {
   background-color: rgb(189, 189, 189);
@@ -259,86 +305,25 @@ a {
 
 @media (max-width: 720px) {
   header {
-    padding: 0 .5em;
-    margin-bottom: 2em;
+
+    box-shadow: 0px 3px 5px lightgrey;
+    padding: 0 1.5em;
+
+  }
+
+  #closeApp {
+    margin-left: 15px;
+    font-size: .7em;
+    background-color: rgb(218, 88, 88);
+    color: white;
+    border-radius: 50vh;
+    padding: 5px 10px;
+    text-align: center;
   }
 
   .user-info {
     display: flex;
-    margin-left: 2em;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    color: rgb(223, 223, 223);
-  }
-
-  #closeApp {
-    width: 20%;
-    height: 40%;
-    display: flex;
-    font-size: .8em;
-    justify-content: center;
-    text-align: center;
-    padding: 10px 10px;
+    padding-left: 15px;
 
   }
-  .user-info p {
-    margin-left: 1em;
-    width: 25%
-  }
-  .user-info .user-image {
-    height: 2.5em;
-    width: 2.5em;
-    border-radius: 50%;
-    background-color: white;
-    opacity: .4;
-    margin-left: 0em;
-    margin-right: 2em;
-  }
-  .nova-tarefa {
-    box-sizing: content-box;   
-    width: 80%;
-    margin: 10%;
-    padding: .5em;
-    
-  }
-  .nova-tarefa button {
-    height: 7%;
-    width: 60px;
-    padding: 1em;
-    margin-left: 0em;
-    margin-right: 0em;
-
-  }
-  
-  .not-done {
-    width: auto;
-    height: 60px;
-    padding: 1em;
-    height: auto; 
-  }
-  
-  .nova-tarefa input[type=text] {
-    border: none;
-    flex: 1;
-    border-bottom: 1px solid lightgrey;
-    border-radius: 0;
-    padding: .2em;
-    width: 100%;
-    font-size: .9em;
-  }
-  
-.titulo-terminadas {
-  position: relative;
-  display: block;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  padding: 1em; 
-  font-weight: 400;
-  font-size: 1em;
-  margin-left: calc(15% - 4em);
- 
-}
-
 }
