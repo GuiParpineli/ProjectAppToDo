@@ -58,8 +58,9 @@ a {
   margin: 0 10%;
   padding: 1em;
   box-shadow: 2px 2px 10px lightgrey;
-  border-radius: .2em;
+  border-radius: 10em;
   z-index: 20;
+
 }
 
 .nova-tarefa input[type=text] {
@@ -111,7 +112,7 @@ a {
   color: grey;
 }
 
-.delTask{
+.delTask {
   width: 2em;
   height: 2em;
   background-color: var(--app-grey);
@@ -152,6 +153,7 @@ a {
   z-index: 2;
   transition: background-color 200ms linear;
 }
+
 .tarefa .delTask {
   position: relative;
   height: 1.5em;
@@ -166,6 +168,7 @@ a {
 .tarefa .not-done:hover {
   background-color: var(--secondary);
 }
+
 .tarefa .delTask:hover {
   background-color: red;
 }
@@ -180,6 +183,7 @@ a {
   width: 2px;
   background-color: var(--secondary);
 }
+
 .tarefa:first-child .delTask::before {
   content: '';
   position: absolute;
@@ -201,6 +205,7 @@ a {
   width: 2px;
   background-color: var(--secondary);
 }
+
 .tarefa:not(:last-child) .delTask::after {
   content: '';
   position: absolute;
@@ -219,6 +224,8 @@ a {
   flex: 1;
   background-color: white;
   padding: 1em 2em;
+  margin-right: 1em;
+  border-radius: 10em;
   box-shadow: 2px 2px 5px lightgrey;
 }
 
@@ -236,16 +243,18 @@ a {
 
 .titulo-terminadas {
   position: relative;
-  width: 8em;
+  width: 70vw;
   text-align: center;
   padding: .5em 1em;
   background-color: white;
-  border-radius: .2em;
+  border-radius: .6em;
   box-shadow: 3px 3px 5px lightgrey;
-  color: rgb(170, 170, 170);
+  color: rgb(122, 99, 99);
   font-weight: 400;
   font-size: 1.1em;
   margin-left: calc(15% - 4em);
+  margin-left: 50%;
+  transform: translate(-50%);
   z-index: 20;
 }
 
@@ -311,6 +320,17 @@ a {
 
   }
 
+  .nova-tarefa {
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-left: 50%;
+    transform: translate(-50%);
+    border-radius: 10px;
+    z-index: 20;
+  }
+
+
   #closeApp {
     margin-left: 15px;
     font-size: .7em;
@@ -324,6 +344,59 @@ a {
   .user-info {
     display: flex;
     padding-left: 15px;
+
+  }
+
+  .tarefas-pendentes {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tarefas-pendentes .descricao {
+
+    margin-right: 5%;
+    border-radius: 1em;
+    font-size: .9rem;
+
+  }
+
+  .tarefa {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.em;
+  }
+
+  .titulo-terminadas {
+    position: relative;
+    width: 20em;
+    text-align: center;
+    padding: .5em 1em;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 3px 3px 5px lightgrey;
+    color: rgb(170, 170, 170);
+    font-weight: 400;
+    font-size: 1.1em;
+    margin-left: 50%;
+    transform: translate(-50%);
+    z-index: 20;
+  }
+
+  .tarefas-terminadas {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarefas-terminadas .descricao {
+    width: 15em;
+    margin-right: 5%;
+    border-radius: 1em;
+    font-size: .9rem;
 
   }
 }
