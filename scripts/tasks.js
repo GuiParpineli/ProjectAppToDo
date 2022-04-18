@@ -4,7 +4,7 @@ if ((localStorage.getItem('jwt') === null) || (localStorage.getItem('jwt') === '
 };
 
 const logout = document.getElementById('closeApp');
-const tasks = document.querySelector('.tasks');
+const task = document.querySelector('.tasks');
 
 logout.onclick = () => {
     localStorage.removeItem('jwt');
@@ -68,7 +68,7 @@ const terminadas = a => {
 }
 const naoTerminadas = a => {
 
-  
+
     const tarefa = document.createElement('li');
     const notDone = document.createElement('div');
     const descricao = document.createElement('div');
@@ -102,7 +102,7 @@ const naoTerminadas = a => {
     tarefa.classList.add("tarefa");
     notDone.setAttribute('id', a.id)
     del.setAttribute('id', a.id)
-    tasks.prepend(tarefa);
+    task.prepend(tarefa);
 }
 
 const obterTasks = (jwt) => {
@@ -118,6 +118,10 @@ const obterTasks = (jwt) => {
             tasks.forEach(a => {
                 if (a.completed !== true) {
                     naoTerminadas(a);
+                    task.hidden = '';
+                    const skeleton = document.getElementById('skeleton')
+                    skeleton.hidden = 'hidden'
+
                 } else {
                     terminadas(a);
                 }
@@ -230,11 +234,6 @@ submit.onclick = a => {
 window.onload = () => {
     obterUsuario(localStorage.getItem('jwt'))
     obterTasks(localStorage.getItem('jwt'))
-    setTimeout(function(a)  {
-    tasks.hidden = '';
-    const skeleton = document.getElementById('skeleton')
-    skeleton.hidden = 'hidden'
-    },1500)
 };
 
 

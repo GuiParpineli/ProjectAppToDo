@@ -74,7 +74,7 @@ button.onclick = a => {
                 cleanAnimation();
                 errorMessage('<b>Email</b> ou <b>Senha</b> incorretos');
             }
-        }, 2000)
+        }, 1500)
 
     }
 };
